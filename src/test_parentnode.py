@@ -38,6 +38,9 @@ class TestParentNode(unittest.TestCase):
         node = self.parent_node.to_html()
         self.assertEqual(node, self.default_html_string)
 
-    
+    def test_nested_parent_node_creation(self):
+        node = ParentNode(self.tag, self.children, self.props).to_html()
+        self.assertEqual(node, '<div id="content" class=".main-container"><b>Bold text</b>Normal text<i>italic text</i>Normal text<div><b>Bold text</b>Normal text<i>italic text</i>Normal text</div></div>')
+
     if __name__ == "__main__":
         unittest.main()

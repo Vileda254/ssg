@@ -18,17 +18,14 @@ class ParentNode(HTMLNode):
         def combine_children_nodes(children):
             children_html = ""
             for child in children:
-                if not child.children:
-                    print("child to html")
-                    children_html += child.to_html()
-                else:
-                    print("parent to html")
-                    child.to_html()
+                children_html += child.to_html()
             
             return children_html
+        if self.props:
+            return f'<{self.tag} {self.props_to_html()}>{combine_children_nodes(self.children)}</{self.tag}>'
         
-        return f'<{self.tag} {self.props_to_html()}>{combine_children_nodes(self.children)}</{self.tag}>'
-        
+        return f'<{self.tag}>{combine_children_nodes(self.children)}</{self.tag}>'
+ 
 
         
 
