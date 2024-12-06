@@ -21,7 +21,7 @@ class TestLeadNode(unittest.TestCase):
         self.assertEqual(raw_html_string, "Testing leaf node values")
 
     def test_leafnode_created(self):
-        node = LeafNode(self.value, self.props, "a")
+        node = LeafNode("a", self.value, self.props)
         html_string = node.to_html()
         self.assertEqual(html_string, '<a href="http://www.mytest.com" target="_blank">Testing leaf node values</a>')
 
