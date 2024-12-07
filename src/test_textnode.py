@@ -20,5 +20,9 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode(self.default_text, TextType.BOLD)
         self.assertNotEqual(node, node2)
 
+    def test_node_to_html(self):
+        node = TextNode(self.default_text, TextType.LINKS, "url.com").text_node_to_html_node().to_html()
+        self.assertEqual(node, '<a href="url.com">This is a text node</a>')
+
 if __name__ == "__main__":
     unittest.main()
